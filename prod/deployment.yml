@@ -4,7 +4,7 @@ metadata:
   name: flask-service-prod
   namespace: prod
 spec:
-  replicas: 3
+  replicas: 5
   selector:
     matchLabels:
       app: flask-app
@@ -16,6 +16,7 @@ spec:
       containers:
         - name: flask-app
           image: ravindra806/my-python-app:prod
+          imagePullPolicy: Always
           ports:
             - containerPort: 5000
           readinessProbe:        # <--- ADD THIS
